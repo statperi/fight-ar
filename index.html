@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <!--<script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>-->
+
+    <script src='./scripts/gesture-detector.js'></script>
+    <script src='./scripts/gesture-handler.js'></script>
+    <script src='./scripts/script.js'></script>
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+    <a-scene vr-mode-ui="enabled: false;"
+             loading-screen="enabled: false;"
+             renderer="logarithmicDepthBuffer: true;"
+             arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+             id="scene"
+             embedded
+             gesture-detector>
+
+        <a-assets>
+            <a-asset-item id="animated-skeleton" src="assets/skeleton/scene.gltf"></a-asset-item>
+            <a-asset-item id="animated-bear" src="assets/bear_male/scene.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-marker id="animated-marker-skeleton"
+                  type="pattern"
+                  preset="custom"
+                  url="./assets/ImageVideo/ArMarker/marker.patt"
+                  raycaster="objects: .clickable"
+                  emitevents="true"
+                  cursor="fuse: false; rayOrigin: mouse;">
+
+            <a-entity id="skeleton-model"
+                      position="0 0 -3 0"
+                      rotation="-75 0 0 0"
+                      scale="0.018390502966511827 0.018390502966511827 0.018390502966511827"
+                      animation-mixer="loop: repeat"
+                      gltf-model="#animated-skeleton"
+                      class="clickable skeleton"
+                      gesture-handler></a-entity>
+        </a-marker>
+
+
+        <!--scale="0.008390502966511827 0.008390502966511827 0.008390502966511827"-->
+        <a-marker id="animated-marker-bear"
+                  type="pattern"
+                  preset="custom"
+                  url="./assets/ImageVideo/BearMarker/bear-logo-bear-focus-square.patt"
+                  raycaster="objects: .clickable"
+                  emitevents="true"
+                  cursor="fuse: false; rayOrigin: mouse;"
+                  smooth="true"
+                  smoothCount="2"
+                  smoothThreshold="2"
+                  smoothTolerance="0.001">
+            <a-entity id="bear-model"
+                      position="0 0 -2 0"
+                      rotation="-75 0 0 0"
+                      scale="0.018390502966511827 0.018390502966511827 0.018390502966511827"
+                      animation-mixer="clip: Arm_Bear|Idle_2; loop: repeat;"
+                      gltf-model="#animated-bear"
+                      class="clickable bear"
+                      gesture-handler></a-entity>
+        </a-marker>
+
+
+
+
+        <a-marker type="barcode" value="8">
+            <a-entity id="barcode-8-model"
+                      position="0 0 -3 0"
+                      rotation="-75 0 0 0"
+                      scale="0.018390502966511827 0.018390502966511827 0.018390502966511827"
+                      animation-mixer="loop: repeat"
+                      gltf-model="#animated-skeleton"
+                      class="clickable skeleton"
+                      gesture-handler></a-entity>
+
+            <!--<a-entity id="bowser-model"
+                position="0 -1.7 -1.8 0"
+                rotation="-86 0 0 0"
+                scale="0.018390502966511827 0.018390502966511827 0.018390502966511827"
+                animation-mixer="clip: Arm_Bear|Idle_2; loop: repeat;"
+                gltf-model="#animated-bear"
+                class="clickable bear"
+                gesture-handler></a-entity>-->
+        </a-marker>
+
+
+        <a-entity camera></a-entity>
+    </a-scene>
+
+    <div class="centered">
+        <button class="skeletonBtn" data-action="skeleton">A</button>
+        <button class="bearBtn" data-action="bear">B</button>
+    </div>
+</body>
+</html>
