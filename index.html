@@ -28,7 +28,7 @@
             <a-asset-item id="animated-bear" src="assets/bear_male/scene.gltf"></a-asset-item>
         </a-assets>
 
-        <a-marker id="animated-marker-skeleton"
+        <!--<a-marker id="animated-marker-skeleton"
                   type="pattern"
                   preset="custom"
                   url="./assets/ImageVideo/ArMarker/marker.patt"
@@ -46,8 +46,6 @@
                       gesture-handler></a-entity>
         </a-marker>
 
-
-        <!--scale="0.008390502966511827 0.008390502966511827 0.008390502966511827"-->
         <a-marker id="animated-marker-bear"
                   type="pattern"
                   preset="custom"
@@ -67,29 +65,31 @@
                       gltf-model="#animated-bear"
                       class="clickable bear"
                       gesture-handler></a-entity>
-        </a-marker>
+        </a-marker>-->
 
 
 
 
         <a-marker type="barcode" value="8">
             <a-entity id="barcode-8-model"
-                      position="0 0 -3 0"
-                      rotation="-75 0 0 0"
-                      scale="0.018390502966511827 0.018390502966511827 0.018390502966511827"
-                      animation-mixer="loop: repeat"
-                      gltf-model="#animated-skeleton"
-                      class="clickable skeleton"
-                      gesture-handler></a-entity>
+                    position="0 0 -3 0"
+                    rotation="-75 0 0 0"
+                    scale="0.018390502966511827 0.018390502966511827 0.018390502966511827"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#animated-skeleton"
+                    class="clickable skeleton"
+                    gesture-handler></a-entity>
+        </a-marker>
 
-            <!--<a-entity id="bowser-model"
-                position="0 -1.7 -1.8 0"
-                rotation="-86 0 0 0"
-                scale="0.018390502966511827 0.018390502966511827 0.018390502966511827"
-                animation-mixer="clip: Arm_Bear|Idle_2; loop: repeat;"
-                gltf-model="#animated-bear"
-                class="clickable bear"
-                gesture-handler></a-entity>-->
+        <a-marker type="barcode" value="9">
+            <a-entity id="barcode-9-model"
+                    position="0 -1.7 -1.8 0"
+                    rotation="-86 0 0 0"
+                    scale="0.018390502966511827 0.018390502966511827 0.018390502966511827"
+                    animation-mixer="clip: Arm_Bear|Idle_2; loop: repeat;"
+                    gltf-model="#animated-bear"
+                    class="clickable bear"
+                    gesture-handler></a-entity>
         </a-marker>
 
 
